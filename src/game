@@ -1,0 +1,56 @@
+Spaceship [] mySpaceship = new Spaceship [1];
+Stars [] myStars;
+//ArrayList<Laser> myLaser = new ArrayList<Laser>();
+Laser [] myLaser;
+Rocks [] myRocks;
+Aliens [] myAliens;
+boolean mr;
+int myLaserCount;
+void setup() {
+  size(400, 400);
+
+  myAliens = new Aliens[3];
+  for (int i =0; i< myAliens.length; i ++) {
+    myAliens[i] = new Aliens(int(random(width)), int(random(height)), 5);
+  }
+
+  myStars = new Stars[100];
+  for (int i =0; i< myStars.length; i ++) {
+    myStars[i] = new Stars(int(random(width)), int(random(height)), 7);
+  }
+  myRocks = new Rocks[100];
+  for (int i =0; i< myStars.length; i ++) {
+    myRocks[i] = new Rocks(int(random(width)), int(random(height)), 2);
+  }
+}
+void draw() {
+  background(0);
+  mySpaceship[0] = new Spaceship(mouseX, mouseY);
+  if (mousePressed) {
+    myLaserCount++;
+  }
+  for (int i = 0; i<= myLaserCount; i++) {
+    //Laser myLasers = new myLaser.get(i);
+  }
+  for (int i =0; i<mySpaceship.length; i++) {
+    mySpaceship[i].display();
+  }
+  for (int i=0; i<myStars.length; i++) {
+    myStars[i].move();
+    myStars[i].display();
+  }
+  /*for (int i=0; i<myRocks.length; i++) {
+   myRocks[i].move();
+   myRocks[i].display();
+   }
+   for (int i=0; i<myAliens.length; i++) {
+   myAliens[i].move();
+   myAliens[i].display();*/
+  //}
+}
+
+void mousePressed() {
+  //Laser[0] = new Laser(mouseX, mouseY);
+  myLaser[0].shoot();
+  myLaser[0].display();
+}
